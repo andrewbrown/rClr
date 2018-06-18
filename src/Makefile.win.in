@@ -37,7 +37,9 @@ RCLRMS=rClrMs
 
 ROBOCP_CMD=cmd /c win_cp.cmd
 
-all: configinfo instdir rClrLib 
+all: configinfo diagnose
+# ATBTODO
+# all: configinfo instdir rClrLib 
 
 # all: diagnose
 

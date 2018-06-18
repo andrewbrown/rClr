@@ -1,0 +1,28 @@
+rclr Notes.txt
+
+# Notes
+
+* Installed RTools 3.5, selected all options for installation, and added it to %PATH% .
+* Installed MiKTeX from: https://miktex.org/downloadinitexmf --edit-config-file updmap
+* Diff repo to see changes made.
+	* The diff to upgrade the .vcxproj was performed using Visual Studio 2017: 
+		* rClr project would not open until rClr/src/rClr.props existed; was this created by some partially successful run of the R/Unix-based build process?
+		* Open rClr.sln, right click on rClr, click Retarget Projects
+* Nuget failed to install packages building from R/Unix-based build process on the command line.  Had to build rClr from VS first to get them installed		
+* Also had to create build.bat above the rClr/ folder, and run it to build.
+* Perform these steps to get the R package PDF to build successfully: https://tex.stackexchange.com/a/129523/165257
+
+# References
+
+* For getting the path to the proper version of MSBuild to use for the build, see this thread:
+
+	https://stackoverflow.com/questions/48753887/microsoft-build-cpptasks-common-cannot-find-microsoft-build-tasks-core
+
+# Todo
+
+* Replace all "ATBTODO" hacks with robust implementations
+* Figure out how to set up src/rClr.vcxproj so that it uses appropriate versions 
+WindowsTargetPlatformVersion makes it impossible to create generic project files: https://developercommunity.visualstudio.com/content/problem/140294/windowstargetplatformversion-makes-it-impossible-t.html
+Infer WindowsTargetPlatformVersion for MSVC: https://phabricator.kde.org/D10126
+* Write up more detailed instructions for building, download and archive installers used.
+* Figure out how to get Nuget working from the command line, so that first-time build attempt from inside VS isn't needed.
